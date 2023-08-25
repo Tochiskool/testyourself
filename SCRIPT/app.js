@@ -27,3 +27,13 @@ var questions = [
     },
 
 ];
+
+//Variables
+
+
+//Load variables to the DOM on load of the page
+
+
+//Set a timer
+
+
