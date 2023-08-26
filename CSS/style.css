@@ -20,3 +20,15 @@ body{
 header, footer{
     text-align: center;
 }
+
+
+#Container1{
+    display: flex;
+    background-color: grey;
+    padding:1rem;
+    color: #ffffff;
+    justify-content: end;
+}
+#timer{
+    color: blue;
+}
