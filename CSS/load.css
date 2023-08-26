@@ -40,7 +40,7 @@
  /* Style input element */
  input:placeholder-shown{
    background-color: var(--whiteMan);
-   border: .5rem solid var(--marginGreen);
+   border: .1rem solid var(--marginGreen);
    border-radius: .5rem;
  }
  input{
