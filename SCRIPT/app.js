@@ -1,3 +1,5 @@
+//Import
+
 //Declare 
 var timerEl, questionEl, answer;
 var counter = 0;
