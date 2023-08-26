@@ -8,7 +8,7 @@ window.onload = function init() {
 }
 
 function startGame(e){
-    
+    console.log('Start now')
     e.preventDefault();
     if (nameEl.value === "") {  
         console.log('Hid me')
