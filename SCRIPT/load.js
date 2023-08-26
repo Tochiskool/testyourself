@@ -7,9 +7,9 @@ function init() {
     btn = document.querySelector('.btn');
 }
 
-function startGame(){
+function startGame(e){
     console.log('Start now')
-    
+    e.preventDefault();
     if (nameEl.value === "") {  
         console.log('Hid me')
         btn.style.display = "none";
