@@ -1,3 +1,15 @@
+//Declare 
+var timerEl, questionEl, answer;
+var counter = 0;
+window.onload = function init() {
+    timerEl = document.querySelector("#timer");
+    questionEl = document.querySelector("#questions");
+    answers = document.querySelector("#answers");
+    console.log(timerEl,questionEl,answers)
+}
+
+
+
 // Var with array and object for questions 
 var questions = [
     {
