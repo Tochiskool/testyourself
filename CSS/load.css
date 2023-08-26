@@ -31,7 +31,7 @@
  
  #Container1{
      display: flex;
-     flex-direction: row;
+     flex-direction: column;
      justify-content: center;
      align-items: center;
      width: 100%;
@@ -66,3 +66,4 @@
     border-color: var(--whiteMan);
     text-decoration: none;
  }
+
