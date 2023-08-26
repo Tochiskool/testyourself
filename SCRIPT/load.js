@@ -8,7 +8,7 @@ window.onload = function init() {
 }
 
 function startGame(e){
-    console.log('Start now')
+    
     e.preventDefault();
     if (nameEl.value === "") {  
         console.log('Hid me')
@@ -16,7 +16,6 @@ function startGame(e){
         hideMe.textContent = ""
         return hideMe.textContent = " Please enter a valid name";
     } else {
-        console.log("Open page")
         window.open('./HTML/question.html');
        window.location.href = "./HTML/question.html" 
     }
