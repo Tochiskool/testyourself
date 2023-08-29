@@ -5,6 +5,7 @@
     --omoBlue:#babaf8;
     --marginGreen:#8DC63F;
     --whiteMan:#ffffff;
+    --bloody: #f11414;
  }
  
  
@@ -25,7 +26,8 @@
  header, footer{
      text-align: center;
      color: var(--marginGreen);
-     font-size: larger;
+     font-size:xx-large;
+     padding: 1rem;
  }
  
  
@@ -67,3 +69,10 @@
     text-decoration: none;
  }
 
+ #hideMe{
+    font-style: italic;
+    font-weight: 700;
+    font-size: larger;
+    padding: 2rem;
+    color: var(--bloody);
+ }
