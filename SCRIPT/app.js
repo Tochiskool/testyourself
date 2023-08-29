@@ -1,16 +1,27 @@
-//Import
 
 //Declare 
-var timerEl, questionEl, answer;
+var timerEl, questionEl, answer, timeInterval, sound;
+var clock = 60;
 var counter = 0;
 window.onload = function init() {
     timerEl = document.querySelector("#timer");
     questionEl = document.querySelector("#questions");
     answers = document.querySelector("#answers");
-    console.log(timerEl,questionEl,answers)
+    console.log(timerEl, questionEl, answers)
+    
+    timeInterval = setInterval(() => {
+        clock--;
+        timerEl.textContent = `${clock} left`;
+
+        if (clock === 0) {
+            clearInterval(timeInterval);
+            
+        }
+    }, 1000);
 }
 
 
+//
 
 // Var with array and object for questions 
 var questions = [
