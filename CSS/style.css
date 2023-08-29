@@ -21,7 +21,10 @@ header, footer{
     text-align: center;
 }
 
-
+#Container1{
+    display: flex;
+    justify-content: flex-end;
+ }
 
 #timer{
     color: blue;
