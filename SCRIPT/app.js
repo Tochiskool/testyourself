@@ -3,25 +3,53 @@
 var timerEl, questionEl, answer, timeInterval, sound;
 var clock = 60;
 var counter = 0;
+var correctAns;
 window.onload = function init() {
     timerEl = document.querySelector("#timer");
     questionEl = document.querySelector("#questions");
     answers = document.querySelector("#answers");
     console.log(timerEl, questionEl, answers)
-    
+    //Load sounds
+ 
     timeInterval = setInterval(() => {
         clock--;
         timerEl.textContent = `${clock} left`;
-
         if (clock === 0) {
             clearInterval(timeInterval);
-            
         }
     }, 1000);
+    presentQuestion()
 }
 
+//Present question and answer list
 
-//
+function presentQuestion(){
+    console.log("Get question")
+    for (var i = 0; i < questions.length; i++){
+        var myQuestions = questions[counter].title;
+        var ansList = questions[counter].choices;
+        correctAns = questions[counter].answer;
+        // console.log(myQuestions, ansList, correctAns)
+        questionEl.innerHTML = myQuestions;
+    }
+    ansList.forEach(ans => {
+        var li = document.createElement('li');
+        var btns = document.createElement('button');
+        btns.textContent = ans;
+        btns.setAttribute('class', "btn");
+        li.setAttribute('class', "list");
+        li.append(btns)
+        answers.append(li);
+        li.addEventListener('click',changeQuestion,false)
+    });
+}
+
+//change question
+function changeQuestion(e) {
+    e.preventDefault();
+    var element = e.target;
+console.log('You clicked', element)
+}
 
 // Var with array and object for questions 
 var questions = [
