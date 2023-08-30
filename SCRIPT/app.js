@@ -2,16 +2,18 @@
 //Declare 
 var timerEl, questionEl, answer, timeInterval, sound;
 var clock = 60;
-var counter = 0;
-var scores = 0;
-var correctAns;
+var score;
+var counter;
+
+
 window.onload = function init() {
+    counter = 0;
+    score = 0;
     timerEl = document.querySelector("#timer");
     questionEl = document.querySelector("#questions");
-    answers = document.querySelector("#answers");
+    answers = document.querySelector("#answersGround");
     console.log(timerEl, questionEl, answers)
     //Load sounds
-
     timeInterval = setInterval(() => {
         clock--;
         timerEl.textContent = `${clock} left`;
@@ -19,62 +21,75 @@ window.onload = function init() {
             clearInterval(timeInterval);
         }
     }, 1000);
-    presentQuestion()
+    presentQuestion(counter)
 }
 
-//Present question and answer list
 
-function presentQuestion() {
-    //Clear elements
+// presentQuestions questions and choices to page: 
+function presentQuestion(counter) {
+    // Clears existing data 
     questionEl.innerHTML = "";
     answers.innerHTML = "";
-    console.log("Get question")
-    for (var i = 0; i < questions.length; i++){
-        var myQuestions = questions[counter].title;
-        var ansList = questions[counter].choices;
-        correctAns = questions[counter].answer;
-        // console.log(myQuestions, ansList, correctAns)
-        questionEl.innerHTML = myQuestions; 
+    // For loops to loop through all info in array
+    for (var i = 0; i < questions.length-1; i++) {
+        // Appends question title only
+        var userQuestion = questions[counter].title;
+        var userChoices = questions[counter].choices;
+        questionEl.textContent = userQuestion;
     }
-    ansList.forEach(ans => {
-        var li = document.createElement('li');
-        var btns = document.createElement('button');
-        btns.textContent = ans;
-        btns.setAttribute('class', "btn");
-        li.setAttribute('class', "list");
-        li.append(btns)
-        answers.append(li);
-        li.addEventListener('click', changeQuestion,false)
-    });
+    // New for each for question choices
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement('li');
+        listItem.textContent = newItem;
+        var ol = document.createElement('ol');
+        ol.setAttribute('class', 'answers');
+        listItem.setAttribute('class', "list");
+        ol.append(listItem);
+        answers.append(ol);
+        listItem.addEventListener("click", (changeQuestion));
+    })
 }
 
-//change question
-function changeQuestion(e) {
-    e.preventDefault();
-    var element = e.target;
-    console.log('You clicked', element)
-    if (element.textContent === correctAns) {
-        scores++;
+// Event to changeQuestion choices with answer
+function changeQuestion(event) {
+    var element = event.target;
+
+    if (element.matches("li")) {
+
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
+        // Correct condition 
+        if (element.textContent == questions[counter].answer) {
+            score++;
+            createDiv.textContent = "Correct! The answer is:  " + questions[counter].answer;
+            // Correct condition 
+        } else {
+           
+            createDiv.textContent = "Wrong! The correct answer is:  " + questions[counter].answer;
+        }
+
+    }
+    // Question Index determines number question user is on
+    counter = (counter + 1) % 4;
+
+    if (counter >= questions.length) {
+        createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
     } else {
-        console.log('Wrong answer')
+        presentQuestion(counter);
     }
+    questionEl.appendChild(createDiv);
 
 }
-
 // Var with array and object for questions 
 var questions = [
     {
-        title: "Where does Tochiskool live?",
+        title: "Where does Christian live?",
         choices: ["Germany", "Limbe", "Trieste", "Treviso"],
         answer: "Trieste"
     },
+
     {
-        title: "How many kids does Tochiskool have",
-        choices: [2, 4, 3, 5],
-        answer: 3
-    },
-    {
-        title: "What does Tochiskool do as work in Trieste",
+        title: "What does Christian do as work in Trieste",
         choices: ["Metal carpenter and industrial welder", "A computer programmer", "A kitchen aid at Castello", "All of the above"],
         answer: "All of the above"
     },
@@ -84,7 +99,7 @@ var questions = [
         answer: "seamstress"
     },
     {
-        title: "Who is Tochiskools role model",
+        title: "Who is Christian's role model",
         choices: ["Samue L Jackson", "Donald Trump", "Padre Piu", "Samuel Eto'o"],
         answer: "Donald Trump"
     },

@@ -26,7 +26,10 @@ body{
 header, footer{
     text-align: center;
 }
-
+header h1{
+    font-size: xx-large;
+    font-weight: 900;
+}
 #Container1{
     display: flex;
     justify-content: flex-end;
@@ -36,20 +39,22 @@ header, footer{
     color: blue;
 }
 
-.btn{
-    width: 25%;
+li{
+    width: 100%;
     background: var(--marginGreen);
     border-color: var(--marginGreen);
     color: var(--whiteMan);
     padding: 1rem;
     border-radius: .5rem;
     margin-top: 1rem;
+    text-align: center;
     transition: all 0.3s ease 0s;
  }
- .btn:hover{
+ li:hover{
     background: none;
     border-color: var(--whiteMan);
     text-decoration: none;
+    color: var(--mainColor);
  }
 
  li{
@@ -60,3 +65,19 @@ header, footer{
  #playGround{
   width: 100%;
  }
+ #playGround #questions{
+    text-align: center;
+    font-size: x-large;
+ }
+#answersGround{
+    width: 60%;
+    /* border: .2rem solid var(--mainColor); */
+    margin: 0 auto;
+    padding: 0rem 2rem 2rem 2rem;
+}
+
+.answers{
+    width: 50%;
+    margin: 0 auto;
+    padding: 1rem;
+}
