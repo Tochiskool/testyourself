@@ -1,7 +1,13 @@
 :root{
-   --aceBlue: #f1f6fa;
-   --mainColor: #2b2d8a;
-}
+    --aceBlue: #f1f6fa;
+    --mainColor: #2b2d8a;
+    --tecno-green: #00ffc8;
+    --omoBlue:#babaf8;
+    --marginGreen:#8DC63F;
+    --whiteMan:#ffffff;
+    --bloody: #f11414;
+ }
+ 
 
 *,*::after,*::before{
     box-sizing: border-box;
@@ -29,3 +35,28 @@ header, footer{
 #timer{
     color: blue;
 }
+
+.btn{
+    width: 25%;
+    background: var(--marginGreen);
+    border-color: var(--marginGreen);
+    color: var(--whiteMan);
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease 0s;
+ }
+ .btn:hover{
+    background: none;
+    border-color: var(--whiteMan);
+    text-decoration: none;
+ }
+
+ li{
+    list-style-type: none;
+    padding-left: 1rem;
+ }
+
+ #playGround{
+  width: 100%;
+ }
