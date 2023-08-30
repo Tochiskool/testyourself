@@ -3,6 +3,7 @@
 var timerEl, questionEl, answer, timeInterval, sound;
 var clock = 60;
 var counter = 0;
+var scores = 0;
 var correctAns;
 window.onload = function init() {
     timerEl = document.querySelector("#timer");
@@ -10,7 +11,7 @@ window.onload = function init() {
     answers = document.querySelector("#answers");
     console.log(timerEl, questionEl, answers)
     //Load sounds
- 
+
     timeInterval = setInterval(() => {
         clock--;
         timerEl.textContent = `${clock} left`;
@@ -23,14 +24,17 @@ window.onload = function init() {
 
 //Present question and answer list
 
-function presentQuestion(){
+function presentQuestion() {
+    //Clear elements
+    questionEl.innerHTML = "";
+    answers.innerHTML = "";
     console.log("Get question")
     for (var i = 0; i < questions.length; i++){
         var myQuestions = questions[counter].title;
         var ansList = questions[counter].choices;
         correctAns = questions[counter].answer;
         // console.log(myQuestions, ansList, correctAns)
-        questionEl.innerHTML = myQuestions;
+        questionEl.innerHTML = myQuestions; 
     }
     ansList.forEach(ans => {
         var li = document.createElement('li');
@@ -40,7 +44,7 @@ function presentQuestion(){
         li.setAttribute('class', "list");
         li.append(btns)
         answers.append(li);
-        li.addEventListener('click',changeQuestion,false)
+        li.addEventListener('click', changeQuestion,false)
     });
 }
 
@@ -48,7 +52,13 @@ function presentQuestion(){
 function changeQuestion(e) {
     e.preventDefault();
     var element = e.target;
-console.log('You clicked', element)
+    console.log('You clicked', element)
+    if (element.textContent === correctAns) {
+        scores++;
+    } else {
+        console.log('Wrong answer')
+    }
+
 }
 
 // Var with array and object for questions 
